@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeoSoluciones El Salvador</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 20px;
+      color: white;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.3em;
+      margin: 15px 0;
+    }
+    .btn-contacto {
+      background: #005c99;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .servicios-grid, .clientes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .servicio, .cliente {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .servicio i {
+      font-size: 2em;
+      color: #005c99;
+      margin-bottom: 10px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    button {
+      background: #005c99;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    footer {
+      background: #002f4b;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    footer a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GeoSoluciones El Salvador</h1>
+    <p>Expertos en soluciones geotécnicas, ambientales y de infraestructura</p>
+    <button class="btn-contacto" onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})">Contáctanos</button>
+  </header>
+
+  <section id="nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p>
+      Somos una empresa salvadoreña con más de 10 años de experiencia en brindar soluciones técnicas innovadoras en el área de geotecnia, ingeniería civil y estudios ambientales. Nuestro equipo combina conocimiento local con estándares internacionales de calidad.
+    </p>
+  </section>
+
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <div class="servicios-grid">
+      <div class="servicio">
+        <i class="fas fa-drafting-compass"></i>
+        <h3>Estudios Geotécnicos</h3>
+        <p>Investigaciones de suelos, perforaciones, pruebas de laboratorio y análisis estructurales.</p>
+      </div>
+      <div class="servicio">
+        <i class="fas fa-recycle"></i>
+        <h3>Evaluaciones Ambientales</h3>
+        <p>Estudios de impacto ambiental, monitoreo de calidad del aire, agua y suelo.</p>
+      </div>
+      <div class="servicio">
+        <i class="fas fa-hard-hat"></i>
+        <h3>Supervisión de Obras</h3>
+        <p>Acompañamiento técnico en la ejecución de proyectos de infraestructura y construcción.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="clientes">
+    <h2>Clientes y Proyectos</h2>
+    <div class="clientes-grid">
+      <div class="cliente"><img src="https://via.placeholder.com/180x80?text=Cliente+1" alt="Cliente 1"></div>
+      <div class="cliente"><img src="https://via.placeholder.com/180x80?text=Cliente+2" alt="Cliente 2"></div>
+      <div class="cliente"><img src="https://via.placeholder.com/180x80?text=Cliente+3" alt="Cliente 3"></div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <form onsubmit="event.preventDefault(); alert('Gracias por contactarnos. Te responderemos pronto.'); this.reset();">
+      <input type="text" placeholder="Tu nombre completo" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <textarea rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 GeoSoluciones El Salvador. Todos los derechos reservados.</p>
+    <p>
+      <a href="#">Facebook</a> | 
+      <a href="#">LinkedIn</a> | 
+      <a href="#">Contáctanos</a>
+    </p>
+  </footer>
+</body>
+</html>
+

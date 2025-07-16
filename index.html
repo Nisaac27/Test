@@ -1,166 +1,366 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GeoSoluciones El Salvador</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Landing Corporativa Profesional</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+<style>
+  /* Reset y base */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Open Sans', sans-serif;
+    color: #222;
+    background: #f9fbfd;
+    line-height: 1.6;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #0073e6;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  /* Contenedor general */
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+  }
+  /* Header - navbar fijo */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: white;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    z-index: 1000;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+  }
+  .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #0073e6;
+  }
+  nav ul {
+    display: flex;
+    gap: 25px;
+  }
+  nav ul li {
+    list-style: none;
+  }
+  nav ul li a {
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 6px 0;
+    position: relative;
+  }
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #0073e6;
+    transition: 0.3s ease;
+  }
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  /* Hero */
+  .hero {
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') center center/cover no-repeat;
+    height: 100vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-top: 70px;
+    position: relative;
+    text-align: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 115, 230, 0.7);
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: auto;
+    padding: 0 20px;
+  }
+  .hero-content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+  .hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 35px;
+    font-weight: 500;
+  }
+  .btn-primary {
+    background-color: #0056b3;
+    color: white;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn-primary:hover {
+    background-color: #003d80;
+  }
+  /* Secciones */
+  section {
+    padding: 80px 0;
+  }
+  section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #003d80;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+  }
+  /* Sobre Nosotros */
+  #about p {
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 1.125rem;
+    color: #444;
+    line-height: 1.7;
+    text-align: center;
+  }
+  /* Servicios */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .service-card {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgb(0 0 0 / 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgb(0 0 0 / 0.15);
+  }
+  .service-icon {
+    font-size: 3.5rem;
+    color: #0056b3;
+    margin-bottom: 20px;
+  }
+  .service-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #003d80;
+    margin-bottom: 12px;
+  }
+  .service-desc {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+  }
+  /* Clientes */
+  .clients-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .clients-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+  .client-logo {
+    max-height: 80px;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+    cursor: default;
+  }
+  .client-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+  /* Contacto */
+  #contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  #contact input,
+  #contact textarea {
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    font-family: inherit;
+  }
+  #contact button {
+    background-color: #0056b3;
+    color: white;
+    font-weight: 700;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #contact button:hover {
+    background-color: #003d80;
+  }
+  /* Footer */
+  footer {
+    background-color: #003d80;
+    color: #d9d9d9;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+  }
+  footer a {
+    color: #d9d9d9;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2.5rem;
     }
-    header {
-      background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad');
-      background-size: cover;
-      background-position: center;
-      padding: 100px 20px;
-      color: white;
-      text-align: center;
+    .hero-content p {
+      font-size: 1.1rem;
     }
-    header h1 {
-      font-size: 3em;
-      margin: 0;
-    }
-    header p {
-      font-size: 1.3em;
-      margin: 15px 0;
-    }
-    .btn-contacto {
-      background: #005c99;
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 4px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    section h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .servicios-grid, .clientes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .servicio, .cliente {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .servicio i {
-      font-size: 2em;
-      color: #005c99;
-      margin-bottom: 10px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
+    nav ul {
       gap: 15px;
     }
-    input, textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1em;
+    section {
+      padding: 50px 0;
     }
-    button {
-      background: #005c99;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 4px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-    footer {
-      background: #002f4b;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    footer a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
   <header>
-    <h1>GeoSoluciones El Salvador</h1>
-    <p>Expertos en soluciones geotécnicas, ambientales y de infraestructura</p>
-    <button class="btn-contacto" onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})">Contáctanos</button>
+    <div class="container">
+      <nav>
+        <div class="logo">MiEmpresa</div>
+        <ul>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#clients">Clientes</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section id="nosotros">
-    <h2>Sobre Nosotros</h2>
-    <p>
-      Somos una empresa salvadoreña con más de 10 años de experiencia en brindar soluciones técnicas innovadoras en el área de geotecnia, ingeniería civil y estudios ambientales. Nuestro equipo combina conocimiento local con estándares internacionales de calidad.
-    </p>
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Soluciones Profesionales Para Tu Negocio</h1>
+      <p>Calidad, experiencia y compromiso en cada proyecto</p>
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contáctanos</button>
+    </div>
   </section>
 
-  <section id="servicios">
-    <h2>Servicios</h2>
-    <div class="servicios-grid">
-      <div class="servicio">
-        <i class="fas fa-drafting-compass"></i>
-        <h3>Estudios Geotécnicos</h3>
-        <p>Investigaciones de suelos, perforaciones, pruebas de laboratorio y análisis estructurales.</p>
-      </div>
-      <div class="servicio">
-        <i class="fas fa-recycle"></i>
-        <h3>Evaluaciones Ambientales</h3>
-        <p>Estudios de impacto ambiental, monitoreo de calidad del aire, agua y suelo.</p>
-      </div>
-      <div class="servicio">
-        <i class="fas fa-hard-hat"></i>
-        <h3>Supervisión de Obras</h3>
-        <p>Acompañamiento técnico en la ejecución de proyectos de infraestructura y construcción.</p>
+  <section id="about">
+    <div class="container">
+      <h2>Sobre Nosotros</h2>
+      <p>
+        Somos una empresa dedicada a ofrecer servicios especializados con un enfoque innovador y sostenible para impulsar tu proyecto al éxito.
+      </p>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container services-grid">
+      <article class="service-card">
+        <i class="fas fa-tools service-icon"></i>
+        <h3 class="service-title">Servicio 1</h3>
+        <p class="service-desc">Descripción breve del servicio número uno que ofrecemos con dedicación y profesionalismo.</p>
+      </article>
+      <article class="service-card">
+        <i class="fas fa-lightbulb service-icon"></i>
+        <h3 class="service-title">Servicio 2</h3>
+        <p class="service-desc">Descripción breve del segundo servicio, pensado para cubrir las necesidades de nuestros clientes.</p>
+      </article>
+      <article class="service-card">
+        <i class="fas fa-chart-line service-icon"></i>
+        <h3 class="service-title">Servicio 3</h3>
+        <p class="service-desc">Nuestra tercera oferta de servicio destaca por su innovación y calidad comprobada.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="clients">
+    <div class="container clients-container">
+      <h2>Clientes Destacados</h2>
+      <div class="clients-logos">
+        <img src="https://via.placeholder.com/150x80?text=Cliente+1" alt="Cliente 1" class="client-logo" />
+        <img src="https://via.placeholder.com/150x80?text=Cliente+2" alt="Cliente 2" class="client-logo" />
+        <img src="https://via.placeholder.com/150x80?text=Cliente+3" alt="Cliente 3" class="client-logo" />
+        <img src="https://via.placeholder.com/150x80?text=Cliente+4" alt="Cliente 4" class="client-logo" />
       </div>
     </div>
   </section>
 
-  <section id="clientes">
-    <h2>Clientes y Proyectos</h2>
-    <div class="clientes-grid">
-      <div class="cliente"><img src="https://via.placeholder.com/180x80?text=Cliente+1" alt="Cliente 1"></div>
-      <div class="cliente"><img src="https://via.placeholder.com/180x80?text=Cliente+2" alt="Cliente 2"></div>
-      <div class="cliente"><img src="https://via.placeholder.com/180x80?text=Cliente+3" alt="Cliente 3"></div>
+  <section id="contact">
+    <div class="container">
+      <h2>Contacto</h2>
+      <form onsubmit="event.preventDefault(); alert('Gracias por contactarnos. Te responderemos pronto.'); this.reset();">
+        <input type="text" placeholder="Tu nombre completo" required />
+        <input type="email" placeholder="Correo electrónico" required />
+        <textarea rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
     </div>
-  </section>
-
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <form onsubmit="event.preventDefault(); alert('Gracias por contactarnos. Te responderemos pronto.'); this.reset();">
-      <input type="text" placeholder="Tu nombre completo" required>
-      <input type="email" placeholder="Correo electrónico" required>
-      <textarea rows="5" placeholder="Escribe tu mensaje..." required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
   </section>
 
   <footer>
-    <p>&copy; 2025 GeoSoluciones El Salvador. Todos los derechos reservados.</p>
+    <p>&copy; 2025 MiEmpresa. Todos los derechos reservados.</p>
     <p>
-      <a href="#">Facebook</a> | 
-      <a href="#">LinkedIn</a> | 
-      <a href="#">Contáctanos</a>
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i> Facebook</a> |
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a> |
+      <a href="#contact">Contáctanos</a>
     </p>
   </footer>
 </body>
